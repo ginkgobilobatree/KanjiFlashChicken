@@ -2,42 +2,26 @@ import React from "react";
 
 export default function Cube() {
   const style = {
-    container: {
-        width: "200px",
-        height: "200px",
-        perspective: "800px"
-    },
-    cube: {
-        width: "100%",
-        height: "100%",
-        position: "relative",
-        transformStyle: "preserve-3d",
-    },
-    cubeSurface: {
-        position: "absolute",
-        width: "200px",
-        height: "200px",
-    },
-    front: {
-        backgroundColor: "#123456"
-    },
-    back: {
-    },
-    left: {},
-    right: {},
-    top: {},
-    bottom: {},
+    container: "w-[20rem] h-[20rem]",
+    cube: "w-full h-full relative",
+    cubeSurface: "absolute w-[20rem] h-[20rem] bg-red",
+    front: "",
+    back: "",
+    left: "",
+    right: "",
+    top: "",
+    bottom: "",
   };
 
   return (
-    <div className={style.container}>
-      <div className={style.cube}>
-        <div className={`${style.front} ${style.cubeSurface}`}></div> 
-        <div className={`${style.back} ${style.cubeSurface}`}></div> 
-        <div className={`${style.left} ${style.cubeSurface}`}></div> 
-        <div className={`${style.right} ${style.cubeSurface}`}></div> 
-        <div className={`${style.top} ${style.cubeSurface}`}></div>
-        <div className={`${style.bottom} ${style.cubeSurface}`}></div> 
+    <div className={style.container} style={{perspective: "60rem"}}>
+      <div className={style.cube} style={{transformStyle: "preserve-3d"}}>
+        <div className={style.cubeSurface} style={{transform: "rotateY(  0deg) translateZ(100px)"}}>front</div> 
+        <div className={style.cubeSurface} style={{transform: "rotateY(  90deg) translateZ(100px)"}}>back</div> 
+        <div className={style.cubeSurface} style={{transform: "rotateY(  180deg) translateZ(100px)"}}>right</div> 
+        <div className={style.cubeSurface} style={{transform: "rotateY(  -90deg) translateZ(100px)"}}>left</div> 
+        <div className={style.cubeSurface} style={{transform: "rotateX(  90deg) translateZ(100px)"}}>top</div>
+        <div className={style.cubeSurface} style={{transform: "rotateX(  -90deg) translateZ(100px)"}}>bottom</div> 
       </div>
     </div>
   );

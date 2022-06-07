@@ -1,10 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Cube from "./components/Cube";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <h1 className="">Hello</h1>
+        <Route path="*" element={<Cube />}/>
+        
       </Routes>
     </BrowserRouter>
   );

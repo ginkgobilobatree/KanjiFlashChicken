@@ -5,7 +5,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="*" element={<Cube />}/>
+        <Route path="/*" element={<Cube />}/>
         
       </Routes>
     </BrowserRouter>

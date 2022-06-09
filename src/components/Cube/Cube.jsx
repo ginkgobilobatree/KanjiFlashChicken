@@ -2,27 +2,20 @@ import React from "react";
 
 export default function Cube() {
   const style = {
-    container: "w-[20rem] h-[20rem]",
-    cube: "w-full h-full relative",
-    cubeSurface: "absolute w-[20rem] h-[20rem] bg-red",
-    front: "",
-    back: "",
-    left: "",
-    right: "",
-    top: "",
-    bottom: "",
+    container: "flex justify-center flex-col mx-auto items-center",
+    kanji: "w-[20vw] h-[20vw] border my-10",
+    button: "border py-1 px-2 mx-2 my-1 rounded-md",
   };
 
   return (
-    <div className={style.container} style={{perspective: "60rem"}}>
-      <div className={style.cube} style={{transformStyle: "preserve-3d"}}>
-        <div className={style.cubeSurface} style={{transform: "rotateY(  0deg) translateZ(100px)"}}>front</div> 
-        <div className={style.cubeSurface} style={{transform: "rotateY(  90deg) translateZ(100px)"}}>back</div> 
-        <div className={style.cubeSurface} style={{transform: "rotateY(  180deg) translateZ(100px)"}}>right</div> 
-        <div className={style.cubeSurface} style={{transform: "rotateY(  -90deg) translateZ(100px)"}}>left</div> 
-        <div className={style.cubeSurface} style={{transform: "rotateX(  90deg) translateZ(100px)"}}>top</div>
-        <div className={style.cubeSurface} style={{transform: "rotateX(  -90deg) translateZ(100px)"}}>bottom</div> 
+    <div className={style.container}>
+      <div className={style.kanji}></div>
+      <button className={style.button}>meaning</button>
+      <div>
+        <button className={style.button}>On</button>
+        <button className={style.button}>Kun</button>
       </div>
+      <button className={style.button}>examples</button>
     </div>
   );
 }

@@ -7,7 +7,7 @@ import Email from "../assets/email.png";
 import Keyboard from "../assets/keyboard.png";
 
 const contact = {
-  title: "let's get in touch!",
+  title: "let's get in touch",
 };
 
 const links = [

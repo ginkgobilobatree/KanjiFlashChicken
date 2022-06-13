@@ -70,7 +70,7 @@ export default function Cube() {
         onClick={() => setRotation([-80, 0])}
         className={style.buttonMeaning}
       >
-        meaning
+        Meaning
       </button>
       <div className="flex justify-center items-center">
         <button
@@ -96,7 +96,7 @@ export default function Cube() {
         onClick={() => setRotation([80, 0])}
         className={style.buttonExamples}
       >
-        examples
+        Examples
       </button>
     </div>
   );

@@ -15,11 +15,7 @@ module.exports = {
       roboto: ['Roboto Slab', 'serif'],
       numans: ['Numans', 'sans-serif'],
     },
-    extend: {
-      backgroundImage: (theme) => ({
-        hero: "url('/src/assets/meCutOut.png')",
-      })
-    },
+    extend: {},
   },
   plugins: [],
 }

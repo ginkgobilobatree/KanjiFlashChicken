@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 body {
+   /*  display: flex;
+    flex-direction: column;
+    justify-content: center; */
     height: 100vh;
     background: linear-gradient(135deg, rgba(24,77,71,1) 35%, rgba(152,187,124,1) 100%);
     color: ghostwhite;

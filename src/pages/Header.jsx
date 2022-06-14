@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function Header() {
   const [cubeCard, setCubeCard] = useState("hicken");//changes the Header to Chicken | Cubes | Cards
   const style = {
-    div: "mt-4 border-4 w-3/4 mx-auto py-8 rounded bg-brightGreen",
+    div: "mt-4 w-3/4 mx-auto py-8 rounded bg-brightGreen",
     h1: "text-6xl text-center left-4 relative",
     span: "text-sm",
     spanF: "text-sm relative right-5",

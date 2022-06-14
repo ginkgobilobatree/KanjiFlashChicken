@@ -2,23 +2,23 @@ import React, { useState, useEffect } from "react";
 import { fetchKanji } from "../util/fetchKanji";
 
 export default function Cube() {
-  const [rotation, setRotation] = useState([0, 0]); //first value X, second Y
-  const [kanji, setKanji] = useState(null);
+  const [rotation, setRotation] = useState([0, 0]); //first value rotateX(), second rotateY()
+  const [kanji, setKanji] = useState(null); //to be fetched in useEffect
 
   useEffect(() => {
     fetchKanji(setKanji);
   }, []);
   const style = {
-    container: "flex justify-center flex-col w-2/3 mx-auto items-center",
-    scene: "w-[160px] h-[160px] mt-20 mb-28",
+    container: "flex justify-center mt-7 flex-col w-2/3 mx-auto items-center",
+    scene: "w-[160px] h-[160px] mb-10",
     cube: "w-[100%] h-[100%] relative",
     surface:
-      "absolute w-[160px] h-[160px] flex justify-center opacity-90 items-center text-red bg-canvas border text-3xl",
-    buttonMeaning: "border py-1 px-2 mx-3 my-1 rounded-md bg-[green]",
-    buttonOn: "border py-1 px-2 mx-3 my-1 rounded-md bg-red",
-    buttonKanji: "border py-1 px-2 mx-3 my-1 rounded-md bg-black",
-    buttonKun: "border py-1 px-2 mx-3 my-1 rounded-md bg-[yellow] text-[black]",
-    buttonExamples: "border py-1 px-2 mx-3 my-1 rounded-md bg-[blue]",
+      "absolute w-[160px] h-[160px] flex justify-center opacity-90 items-center text-red bg-[white] border text-3xl",
+    buttonMeaning: "border py-1 px-2 mx-3 my-1 rounded-md bg-darkGreen",
+    buttonOn: "border py-1 px-2 mx-3 my-1 rounded-md bg-darkGreen",
+    buttonKanji: "border py-1 px-2 mx-3 my-1 rounded-md bg-darkGreen",
+    buttonKun: "border py-1 px-2 mx-3 my-1 rounded-md bg-darkGreen",
+    buttonExamples: "border py-1 px-2 mx-3 my-1 rounded-md bg-darkGreen",
   };
 
   return (

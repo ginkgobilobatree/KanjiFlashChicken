@@ -1,7 +1,7 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 export default function Test() {
-    const [fetched, setFetched] = useState("hallo")
+  const [fetched, setFetched] = useState({ message: "" });
   const fetching = async () => {
     const response = await fetch("/test", {
       method: "GET",
@@ -10,9 +10,13 @@ export default function Test() {
       },
     });
     const result = await response.json();
-    setFetched(result)
+    setFetched(result);
   };
-  console.log(fetched)
-  return (<><button onClick={fetching}>Test</button><p>{fetched?.message}</p></>);
-
+  console.log(fetched);
+  return (
+    <>
+      <button onClick={fetching}>Test</button>
+      <p>{fetched.message}</p>
+    </>
+  );
 }

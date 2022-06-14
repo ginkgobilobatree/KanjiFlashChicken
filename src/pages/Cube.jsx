@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { fetchKanji } from "../util/fetchKanji";
 
 export default function Cube() {
-  const [rotation, setRotation] = useState([-10, 0]); //first value X, second Y
+  const [rotation, setRotation] = useState([0, 0]); //first value X, second Y
   const [kanji, setKanji] = useState(null);
 
   useEffect(() => {
@@ -13,7 +13,7 @@ export default function Cube() {
     scene: "w-[160px] h-[160px] mt-20 mb-28",
     cube: "w-[100%] h-[100%] relative",
     surface:
-      "absolute w-[160px] h-[160px] flex justify-center items-center text-canvas bg-red border text-3xl",
+      "absolute w-[160px] h-[160px] flex justify-center opacity-90 items-center text-red bg-canvas border text-3xl",
     buttonMeaning: "border py-1 px-2 mx-3 my-1 rounded-md bg-[green]",
     buttonOn: "border py-1 px-2 mx-3 my-1 rounded-md bg-red",
     buttonKanji: "border py-1 px-2 mx-3 my-1 rounded-md bg-black",
@@ -29,7 +29,7 @@ export default function Cube() {
           style={{
             transformStyle: "preserve-3d",
             transform: `rotateX(${rotation[0]}deg) rotateY(${rotation[1]}deg)`,
-            transition: "1s",
+            transition: ".7s",
           }}
           className={style.cube}
         >
@@ -67,7 +67,8 @@ export default function Cube() {
             style={{ transform: "rotateX(-90deg) translateZ(80px)" }}
             className={style.surface}
           >
-            Examples
+            {/* Examples */}
+            <div className="w-[40%] h-[40%] rounded-full bg-red"></div>
           </div>
         </div>
       </div>
@@ -85,7 +86,7 @@ export default function Cube() {
           On
         </button>
         <button
-          onClick={() => setRotation([-10, 0])}
+          onClick={() => setRotation([0, 0])}
           className={style.buttonKanji}
         >
           Kanji

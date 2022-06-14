@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-export default function Card() {
+export default function FlaschCards() {
   const [rotation, setRotation] = useState(0);
+
   const style = {
-    main: "flex justify-center items-center flex-col",
     scene: "w-[200px] h-[120px] my-10",
     cards: "w-[100%] h-[100%] text-4xl relative border hover:cursor-pointer",
     surfaceFront:
@@ -13,7 +13,7 @@ export default function Card() {
     button: "border rounded-md px-2 py-1 mx-2",
   };
   return (
-    <main className={style.main}>
+    <>
       <div style={{ perspective: "600px" }} className={style.scene}>
         <div
           onClick={() => (rotation ? setRotation(0) : setRotation(180))}
@@ -46,6 +46,6 @@ export default function Card() {
         <div className="w-2 h-2 bg-canvas border rounded-full"></div>
         <button className={style.button}>next</button>
       </div>
-    </main>
+    </>
   );
 }

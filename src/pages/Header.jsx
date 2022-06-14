@@ -32,7 +32,7 @@ export default function Header() {
           <Link
             onClick={() => setCubeCard("ards")}
             className={style.link}
-            to="/card"
+            to="/cards"
           >
             cards
           </Link>

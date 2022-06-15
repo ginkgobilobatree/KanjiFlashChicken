@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 export default function Header() {
   const [cubeCard, setCubeCard] = useState("welcome!");//changes the Header to Chicken | Cubes | Cards
   const style = {
-    div: "mt-4 w-[200px] mx-auto py-2 border border-dry border-dashed",
-    h1: "text-xl text-juicy",
+    div: "mt-4 w-[200px] mx-auto border border-dry border-dashed rounded-tr-[90%]",
+    h1: "text-2xl text-[white]",
     p: "text-juicy text-right",
     nav: "mt-10",
     ul: "flex justify-between w-[200px] mx-auto items-center",

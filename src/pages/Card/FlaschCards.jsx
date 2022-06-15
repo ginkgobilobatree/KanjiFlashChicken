@@ -5,12 +5,12 @@ export default function FlaschCards() {
 
   const style = {
     scene: "w-[200px] h-[120px] my-4",
-    cards: "w-[100%] h-[100%] text-4xl relative text-red border hover:cursor-pointer rounded-md",
+    cards: "w-[100%] h-[100%] text-4xl relative text-attention hover:cursor-pointer",
     surfaceFront:
-      "bg-[white] absolute w-[100%] h-[100%] flex justify-center items-center text-red rounded",
+      "bg-deepBack absolute w-[100%] h-[100%] flex justify-center items-center text-[white] border border-dashed border-[white]",
     surfaceBack:
-      "bg-[white] absolute w-[100%] h-[100%] flex justify-center items-center text-red rounded",
-    button: "border rounded-md px-2 py-1 mx-2 bg-darkGreen",
+      "bg-deepBack absolute w-[100%] h-[100%] flex justify-center items-center text-[white] border border-dashed border-[white]",
+    button: "px-3 py-1 mx-2 text-[white] border border-dotted border-dry",
   };
   return (
     <>

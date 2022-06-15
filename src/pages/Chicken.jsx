@@ -3,7 +3,7 @@ import Rooster from "../img/chicken.jpg";
 
 export default function Chicken() {
   const style = {
-    figure: "w-3/4 mx-auto mt-4",
+    figure: "w-[200px] mx-auto mt-4 rounded overflow-hidden",
     img: "w-full",
   };
   return (

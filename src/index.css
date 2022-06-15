@@ -6,7 +6,11 @@ body {
    /*  display: flex;
     flex-direction: column;
     justify-content: center; */
+    font-family: monospace;
     height: 100vh;
-    background: linear-gradient(135deg, rgba(24,77,71,1) 35%, rgba(152,187,124,1) 100%);
-    color: ghostwhite;
+    background: linear-gradient(171deg, rgba(2,53,131,1) 30%, rgba(133,57,135,1) 32%, rgba(1,19,64,1) 64%) fixed;
+}
+
+* {
+    font-family: 'Zen Dots', cursive;
 }

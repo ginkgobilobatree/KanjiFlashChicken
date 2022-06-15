@@ -1,34 +1,32 @@
-import React, { useState } from "react";
+import React/* , { useState } */ from "react";
 import { Link } from "react-router-dom";
 
 export default function Header() {
-  const [cubeCard, setCubeCard] = useState("hicken");//changes the Header to Chicken | Cubes | Cards
+  // const [cubeCard, setCubeCard] = useState("welcome!");//changes the Header to Chicken | Cubes | Cards
   const style = {
-    div: "mt-4 w-3/4 mx-auto py-8 rounded bg-brightGreen",
-    h1: "text-6xl text-center left-4 relative",
-    span: "text-sm",
-    spanF: "text-sm relative right-5",
-    spanC: "relative right-6",
-    nav: "mt-4",
-    ul: "flex justify-center gap-4 items-center",
-    link: "border py-1 px-2 rounded-md text-sm bg-darkGreen",
+    div: "mt-4 w-[200px] mx-auto relative", // border border-dry border-dashed rounded-tr-[90%]
+    h1: "text-2xl text-[white]",
+    p: "text-juicy text-right",
+    nav: "mt-10",
+    ul: "flex justify-between w-[200px] mx-auto items-center",
+    link: "py-1 px-3 text-sm border border-dry border-dotted text-juicy",
   };
   return (
     <>
     <nav className={style.nav}>
         <ul className={style.ul}>
           <Link
-            onClick={() => setCubeCard("ubes")}
+            /* onClick={() => setCubeCard("cubes")} */
             className={style.link}
-            to="/cube"
+            to="/cubes"
           >
             cubes
           </Link>
-          <div className="w-10 h-6 bg-[white] flex justify-center items-center">
+          {/* <div className="w-10 h-6 bg-[white] flex justify-center items-center"> //japanese flag
             <div className="bg-[red] w-3 h-3 rounded-full"></div>
-          </div>
+          </div> */}
           <Link
-            onClick={() => setCubeCard("ards")}
+            /* onClick={() => setCubeCard("cards")} */
             className={style.link}
             to="/cards"
           >
@@ -38,13 +36,10 @@ export default function Header() {
       </nav>
       <div className={style.div}>
         <h1 className={style.h1}>
-          K<span className={style.span}>anji</span>F
-          <span className={style.spanF}>lash</span>
-          <span></span>
-          <span className={style.spanC}>
-            C<span className={style.span}>{cubeCard}</span>
-          </span>
+         kanji flash
         </h1>
+        {/* <p className={style.p}>{cubeCard}</p> */}
+        <div className="border-t-2 border-inset border-dry w-40 h-10 absolute top-7 rounded-tl-[10%] rounded-tr-[50%]"></div>
       </div>
       
     </>

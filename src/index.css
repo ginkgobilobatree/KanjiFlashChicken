@@ -10,3 +10,7 @@ body {
     height: 100vh;
     background: linear-gradient(171deg, rgba(2,53,131,1) 30%, rgba(133,57,135,1) 32%, rgba(1,19,64,1) 64%) fixed;
 }
+
+* {
+    font-family: 'Zen Dots', cursive;
+}

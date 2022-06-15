@@ -9,12 +9,12 @@ export default function Cube() {
     fetchKanji(setKanji);
   }, []);
   const style = {
-    container: "flex justify-center mt-7 flex-col w-[200px] mx-auto items-center",
+    container: "flex justify-center mt-8 flex-col w-[200px] mx-auto items-center",
     scene: "w-[180px] h-[180px] mb-10",
     cube: "w-[100%] h-[100%] relative",
     surface:
       "bg-deepBack opacity-90 absolute w-[180px] h-[180px] flex justify-center items-center text-[white] border border-dashed border-[white] text-3xl",
-    buttonMeaning: "w-[80px] py-1 px-3 mx-3 my-1 text-[white] border border-dotted border[white]",
+    buttonMeaning: "w-[100px] py-1 px-3 mx-3 my-1 text-[white] border border-dotted border[white]",
     buttonOn: "w-[80px] py-1 px-3 mx-3 my-1 text-[white] border border-dotted border[white]",
     buttonKanji: "w-[80px] py-1 px-3 mx-3 my-1 text-[white] border border-dotted border[white]",
     buttonKun: "w-[80px] py-1 px-3 mx-3 my-1 text-[white] border border-dotted border[white]",

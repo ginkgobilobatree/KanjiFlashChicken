@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React/* , { useState } */ from "react";
 import { Link } from "react-router-dom";
 
 export default function Header() {
-  const [cubeCard, setCubeCard] = useState("welcome!");//changes the Header to Chicken | Cubes | Cards
+  // const [cubeCard, setCubeCard] = useState("welcome!");//changes the Header to Chicken | Cubes | Cards
   const style = {
-    div: "mt-4 w-[200px] mx-auto border border-dry border-dashed rounded-tr-[90%]",
+    div: "mt-4 w-[200px] mx-auto relative", // border border-dry border-dashed rounded-tr-[90%]
     h1: "text-2xl text-[white]",
     p: "text-juicy text-right",
     nav: "mt-10",
@@ -16,9 +16,9 @@ export default function Header() {
     <nav className={style.nav}>
         <ul className={style.ul}>
           <Link
-            onClick={() => setCubeCard("cubes")}
+            /* onClick={() => setCubeCard("cubes")} */
             className={style.link}
-            to="/cube"
+            to="/cubes"
           >
             cubes
           </Link>
@@ -26,7 +26,7 @@ export default function Header() {
             <div className="bg-[red] w-3 h-3 rounded-full"></div>
           </div> */}
           <Link
-            onClick={() => setCubeCard("cards")}
+            /* onClick={() => setCubeCard("cards")} */
             className={style.link}
             to="/cards"
           >
@@ -38,7 +38,8 @@ export default function Header() {
         <h1 className={style.h1}>
          kanji flash
         </h1>
-        <p className={style.p}>{cubeCard}</p>
+        {/* <p className={style.p}>{cubeCard}</p> */}
+        <div className="border-t-2 border-inset border-dry w-40 h-10 absolute top-7 rounded-tl-[10%] rounded-tr-[50%]"></div>
       </div>
       
     </>

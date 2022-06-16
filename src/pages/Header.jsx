@@ -25,6 +25,7 @@ export default function Header() {
           >
             cubes
           </NavLink>
+          <NavLink to="test">Test</NavLink>
           <NavLink
             style={({ isActive }) => ({
               background: isActive ? "#011340" : "",

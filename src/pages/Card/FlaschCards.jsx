@@ -11,7 +11,7 @@ export default function FlaschCards() {
     surfaceBack:
       "bg-deepBack absolute w-[100%] h-[100%] flex justify-center items-center text-[white] border border-dashed border-[white]",
     p: "px-1 py-1 border-l border-b text-[white] text-[9px] border-dotted mb-4",
-    button: "text-center w-[90px] py-1 text-[white] border border-dotted border-dry hover:scale-105 active:bg-dark active:sepia",
+    button: "w-[90px] py-1 text-[white] border border-dotted border-dry hover:scale-105 active:bg-dark active:sepia",
   };
   return (
     <>

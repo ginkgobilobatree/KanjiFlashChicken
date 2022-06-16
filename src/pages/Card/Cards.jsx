@@ -8,7 +8,7 @@ export default function Card() {
   const [toggle, setToggle] = useState(false);
   const style = {
     main: "flex justify-center items-center flex-col",
-    button: toggle ? "hidden" : "py-1 px-3 mt-2 border border-dotted border-dry text-[white] hover:scale-105 active:bg-dark active:sepia w-[200px]",
+    button: toggle ? "hidden" : "py-1 text-[12px] mt-2 border border-dotted border-dry text-[white] hover:scale-105 active:bg-dark active:sepia w-[200px]",
     div1: toggle
       ? "flex justify-center items-center fixed top-0 bottom-0 left-0 right-0 backdrop-blur-sm"
       : "hidden",

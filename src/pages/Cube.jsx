@@ -19,20 +19,20 @@ export default function Cube() {
       "bg-deepBack opacity-90 absolute w-[180px] h-[180px] flex justify-center items-center text-[white] border border-dashed border-[white] text-3xl",
     buttonMeaning:
       toggle === "meaning"
-        ? "w-[100px] py-1 text-center my-1 text-[white] border border-dotted hover:scale-105 active:bg-dark active:sepia"
-        : "w-[100px] py-1 text-center my-1 text-[white] border-dark border border-dotted hover:scale-105 active:bg-dark active:sepia",
+        ? "w-[100px] py-1 my-1 text-[white] border border-dotted"
+        : "w-[100px] py-1 my-1 text-[white] border-dark border border-dotted hover:scale-105 active:bg-dark active:sepia",
     buttonOn:
       toggle === "on"
-        ? "w-[100px] py-1 text-center my-1 text-[white] border border-dotted hover:scale-105 active:bg-dark active:sepia"
-        : "w-[100px] py-1 text-center my-1 text-[white] border-dark border border-dotted hover:scale-105 active:bg-dark active:sepia",
+        ? "w-[100px] py-1 my-1 text-[white] border border-dotted"
+        : "w-[100px] py-1 my-1 text-[white] border-dark border border-dotted hover:scale-105 active:bg-dark active:sepia",
     buttonKanji:
       toggle === "kanji"
-        ? "w-[100px] py-1 text-center my-1 text-[white] border border-dotted hover:scale-105 active:bg-dark active:sepia"
-        : "w-[100px] py-1 text-center my-1 text-[white] border-dark border border-dotted hover:scale-105 active:bg-dark active:sepia",
+        ? "w-[100px] py-1 my-1 text-[white] border border-dotted"
+        : "w-[100px] py-1 my-1 text-[white] border-dark border border-dotted hover:scale-105 active:bg-dark active:sepia",
     buttonKun:
       toggle === "kun"
-        ? "w-[100px] py-1 text-center my-1 text-[white] border border-dotted hover:scale-105 active:bg-dark active:sepia"
-        : "w-[100px] py-1 text-center my-1 text-[white] border-dark border border-dotted hover:scale-105 active:bg-dark active:sepia",
+        ? "w-[100px] py-1 my-1 text-[white] border border-dotted"
+        : "w-[100px] py-1 my-1 text-[white] border-dark border border-dotted hover:scale-105 active:bg-dark active:sepia",
   };
 
   return (

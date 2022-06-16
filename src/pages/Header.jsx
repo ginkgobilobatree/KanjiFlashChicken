@@ -9,7 +9,7 @@ export default function Header() {
     p: "text-juicy text-right",
     nav: "mt-10",
     ul: "flex justify-between w-[200px] mx-auto items-center",
-    link: "py-1 px-3 text-sm border border-dry border-dotted text-juicy hover:scale-105 active:bg-dark active:sepia active:text-[white]",
+    link: "py-1 px-3 text-sm border border-dry border-dotted text-juicy active:bg-dark active:sepia hover:border-[white]",
   };
   return (
     <>
@@ -18,6 +18,7 @@ export default function Header() {
           <NavLink
             style={({ isActive }) => ({
               background: isActive ? "#011340" : "",
+              transform: isActive? "scale(.9)" : "scale(1)",
             })}
             /* onClick={() => setCubeCard("cubes")} */
             className={style.link}
@@ -31,6 +32,7 @@ export default function Header() {
           <NavLink
             style={({ isActive }) => ({
               background: isActive ? "#011340" : "",
+              transform: isActive? "scale(.9)" : "scale(1)",
             })}
             /* onClick={() => setCubeCard("cards")} */
             className={style.link}

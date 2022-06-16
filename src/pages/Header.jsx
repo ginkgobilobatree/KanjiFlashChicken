@@ -17,7 +17,7 @@ export default function Header() {
           <NavLink
             style={({ isActive }) => ({
               background: isActive ? "#011340" : "",
-              transform: isActive? "scale(.9)" : "scale(1)",
+              transform: isActive ? "scale(.9)" : "scale(1)",
             })}
             className={style.link}
             to="/cubes"
@@ -27,7 +27,7 @@ export default function Header() {
           <NavLink
             style={({ isActive }) => ({
               background: isActive ? "#011340" : "",
-              transform: isActive? "scale(.9)" : "scale(1)",
+              transform: isActive ? "scale(.9)" : "scale(1)",
             })}
             className={style.link}
             to="/cards"

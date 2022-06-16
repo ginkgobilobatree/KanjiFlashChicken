@@ -12,15 +12,15 @@ export default function Cube() {
 
   const style = {
     container:
-      "flex justify-center mt-8 flex-col w-[200px] mx-auto items-center",
+      "flex justify-center mt-16 flex-col w-[200px] mx-auto items-center",
     scene: "w-[180px] h-[180px] mb-10",
     cube: "w-[100%] h-[100%] relative",
     surface:
       "bg-deepBack opacity-90 absolute w-[180px] h-[180px] flex justify-center items-center text-[white] border border-dashed border-[white] text-3xl",
     buttonMeaning:
       toggle === "meaning"
-        ? "w-[100px] py-1 my-1 text-[white] border border-dotted"
-        : "w-[100px] py-1 my-1 text-[white] border-dark border border-dotted hover:scale-105 active:bg-dark active:sepia",
+        ? "w-[100px] py-1 mb-1 mt-8 text-[white] border border-dotted"
+        : "w-[100px] py-1 mb-1 mt-8 text-[white] border-dark border border-dotted hover:scale-105 active:bg-dark active:sepia",
     buttonOn:
       toggle === "on"
         ? "w-[100px] py-1 my-1 text-[white] border border-dotted"

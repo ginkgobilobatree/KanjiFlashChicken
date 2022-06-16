@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 export default function Header() {
   const style = {
-    div: "mt-4 w-[200px] mx-auto relative", // border border-dry border-dashed rounded-tr-[90%]
+    div: "mt-4 w-[200px] mx-auto relative",
     h1: "z-10 relative text-2xl text-[white] border-t border-dashed rounded-tr-[80%]",
     p: "text-juicy text-right",
     nav: "mt-10",
@@ -17,7 +17,7 @@ export default function Header() {
           <NavLink
             style={({ isActive }) => ({
               background: isActive ? "#011340" : "",
-              transform: isActive ? "scale(.9)" : "scale(1)",
+              transform: isActive ? "scale(.8)" : "scale(1)",
             })}
             className={style.link}
             to="/cubes"

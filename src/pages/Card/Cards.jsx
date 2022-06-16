@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FlashCards from "./FlaschCards";
 import NewCard from "./NewCard";
+
 // import { Outlet } from "react-router-dom";
 
 export default function Card() {
@@ -18,6 +19,12 @@ export default function Card() {
       <FlashCards />
       <button onClick={() => setToggle(!toggle)} className={style.button}>{/* button opens input fields */}
         add new card
+      </button>
+      <button className={style.button}>
+        choose topic
+      </button>
+      <button className={style.button}>
+        add new topic
       </button>
       <div onClick={(e) => setToggle(false)} className={style.div1}>{/* sets background on blur and closes input on onClick */}
         <div onClick={(e) => e.stopPropagation()} className={style.div2}>{/* stopPropagation leaves toggle true on onClick */}

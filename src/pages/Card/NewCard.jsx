@@ -7,7 +7,7 @@ export default function newCard() {
     button:
       "mt-2 py-1 px-3 border border-dotted border-[white] text-[white] bg-juicy hover:scale-105 active:bg-dark active:sepia",
   };
-  const bla = (e) => {
+  const bla = (e) => { //for testing purposes
     e.preventDefault();
     console.log("hi");
   };

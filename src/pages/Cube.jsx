@@ -4,7 +4,7 @@ import { fetchKanji } from "../util/fetchKanji";
 export default function Cube() {
   const [rotation, setRotation] = useState([0, 0]); //first value rotateX(), second rotateY()
   const [kanji, setKanji] = useState(null); //to be fetched in useEffect
-  const [toggle, setToggle] = useState("");
+  const [toggle, setToggle] = useState(""); //possible states: meaning || on || kanji || kun; for styling
 
   useEffect(() => {
     fetchKanji(setKanji);

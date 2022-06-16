@@ -21,6 +21,9 @@ export default function Card() {
         add new card
       </button>
       <button className={style.button}>
+        change front and back
+      </button>
+      <button className={style.button}>
         choose topic
       </button>
       <button className={style.button}>

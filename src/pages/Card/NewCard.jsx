@@ -16,7 +16,7 @@ export default function newCard() {
           <input className={style.input} type="text" placeholder="front" />
           <input className={style.input} type="text" placeholder="back" />
         <button className={style.button} type="submit">
-          New Card
+          add card
         </button>
       </form>
     </>

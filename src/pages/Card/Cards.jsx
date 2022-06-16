@@ -1,26 +1,36 @@
 import React, { useState } from "react";
 import FlashCards from "./FlaschCards";
 import NewCard from "./NewCard";
-// import { Outlet } from "react-router-dom";
 
 export default function Card() {
   const [toggle, setToggle] = useState(false);
   const style = {
     main: "flex justify-center items-center flex-col",
-    button: toggle ? "hidden" : "py-1 px-3 mt-2 border border-dotted border-dry text-[white]",
+    button: toggle
+      ? "hidden"
+      : "py-1 text-[12px] mt-2 border border-dotted border-dry text-[white] hover:scale-105 active:bg-dark active:sepia w-[200px]",
+    p: "text-[white] text-[9px] border-l border-b border-dotted",
     div1: toggle
-      ? "flex justify-center items-center fixed top-0 bottom-0 left-0 right-0 backdrop-blur-sm"
+      ? "z-20 flex justify-center items-center fixed top-0 bottom-0 left-0 right-0 backdrop-blur-sm"
       : "hidden",
-    div2: toggle ? "w-3/4 flex justify-center items-center z-10" : "hidden",
+    div2: toggle ? "flex justify-center items-center" : "hidden",
   };
+
   return (
     <main className={style.main}>
       <FlashCards />
-      <button onClick={() => setToggle(!toggle)} className={style.button}>{/* button opens input fields */}
-        Add new Card
+      <button className={style.button}>change front and back</button>
+      <button onClick={() => setToggle(!toggle)} className={`${style.button} + mt-6`}>
+        {/* button opens input fields */}
+        add new card
       </button>
-      <div onClick={(e) => setToggle(false)} className={style.div1}>{/* sets background on blur and closes input on onClick */}
-        <div onClick={(e) => e.stopPropagation()} className={style.div2}>{/* stopPropagation leaves toggle true on onClick */}
+      <button className={style.button}>choose card (32)</button>
+      <button className={`${style.button} + mt-6`}>add new stack</button>
+      <button className={style.button}>choose stack (3)</button>
+      <div onClick={(e) => setToggle(false)} className={style.div1}>
+        {/* sets background on blur and closes input on onClick */}
+        <div onClick={(e) => e.stopPropagation()} className={style.div2}>
+          {/* stopPropagation leaves toggle true on onClick */}
           <NewCard />
         </div>
       </div>

@@ -10,7 +10,7 @@ export default function FlaschCards() {
       "bg-deepBack absolute w-[100%] h-[100%] flex justify-center items-center text-[white] border border-dashed border-[white]",
     surfaceBack:
       "bg-deepBack absolute w-[100%] h-[100%] flex justify-center items-center text-[white] border border-dashed border-[white]",
-    button: "px-3 py-1 mx-2 text-[white] border border-dotted border-dry",
+    button: "text-center w-[90px] py-1 text-[white] border border-dotted border-dry hover:scale-105 active:bg-dark active:sepia",
   };
   return (
     <>
@@ -41,7 +41,7 @@ export default function FlaschCards() {
           </div>
         </div>
       </div>
-      <div className="flex justify-center items-center">
+      <div className="flex justify-between w-[200px]">
         <button className={style.button}>prev</button>
         <button className={style.button}>next</button>
       </div>

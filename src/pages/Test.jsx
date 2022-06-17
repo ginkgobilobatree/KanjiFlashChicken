@@ -1,28 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default function Test() {
   const fetching = async () => {
-    return await fetch("/test") //seems like return && async/awat are mandatory
-  }
-
-
-  /* const [fetched, setFetched] = useState({ message: "" });
-  const fetching = async () => {
-    const response = await fetch("/test", {
+    const req = {
       method: "GET",
       headers: {
-        "Content-Type": "application",
-      },
-    });
+        "Content-Type": "application"
+      }
+    }
+    console.log('successfully pushed this button :-)');
+    const response = await fetch("/test", req); //seems like return && async/await are mandatory
     const result = await response.json();
-    setFetched(result);
-  };
-  console.log(fetched); */
-
+    console.log(result.message)
+  }
+  
   return (
-    <>
-      <button onClick={fetching}>Test</button>
+    <div className="mt-20">
+      <button className="border border-[white] text-[white]" onClick={fetching}>Test</button>
+      <button className="border border-[white] text-[white]" onClick={() => console.log('test')}>test this!</button>
       {/* <p>{fetched.message}</p> */}
-    </>
+    </div>
   );
 }

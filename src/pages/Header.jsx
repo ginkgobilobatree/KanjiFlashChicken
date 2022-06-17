@@ -3,7 +3,8 @@ import { NavLink } from "react-router-dom";
 
 export default function Header() {
   const style = {
-    div: "mt-4 w-[200px] mx-auto relative",
+    div1: "mt-4 w-[200px] mx-auto relative",
+    div2: "border-t-2 border-inset border-dry w-40 h-10 absolute top-7 rounded-tl-[10%] rounded-tr-[50%]",
     h1: "z-10 relative text-2xl text-[white] border-t border-dashed rounded-tr-[80%]",
     p: "text-juicy text-right",
     nav: "mt-10",
@@ -24,6 +25,7 @@ export default function Header() {
           >
             cubes
           </NavLink>
+          <NavLink to="test">Test</NavLink>
           <NavLink
             style={({ isActive }) => ({
               background: isActive ? "#011340" : "",
@@ -36,9 +38,9 @@ export default function Header() {
           </NavLink>
         </ul>
       </nav>
-      <div className={style.div}>
+      <div className={style.div1}>
         <h1 className={style.h1}>kanji flash</h1>
-        <div className="border-t-2 border-inset border-dry w-40 h-10 absolute top-7 rounded-tl-[10%] rounded-tr-[50%]"></div>
+        <div className={style.div2}></div>
       </div>
     </>
   );

@@ -20,13 +20,18 @@ export default function Card() {
     <main className={style.main}>
       <FlashCards />
       <button className={style.button}>change front and back</button>
-      <button onClick={() => setToggle(!toggle)} className={`${style.button} + mt-6`}>
+      <button
+        onClick={() => setToggle(!toggle)}
+        className={`${style.button} + mt-6`}
+      >
         {/* button opens input fields */}
         add new card
       </button>
       <button className={style.button}>choose card (32)</button>
+      {/* number will be retrieved from DB */}
       <button className={`${style.button} + mt-6`}>add new stack</button>
       <button className={style.button}>choose stack (3)</button>
+      {/* number will be retrieved from DB */}
       <div onClick={(e) => setToggle(false)} className={style.div1}>
         {/* sets background on blur and closes input on onClick */}
         <div onClick={(e) => e.stopPropagation()} className={style.div2}>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function FlaschCards() {
-  const [rotation, setRotation] = useState(0);
+  const [rotation, setRotation] = useState(0); //default 0deg
 
   const style = {
     scene: "w-[200px] h-[120px] mt-4",
@@ -44,7 +44,7 @@ export default function FlaschCards() {
           </div>
         </div>
       </div>
-      <p className={style.p}>current stack: FRUITS</p>
+      <p className={style.p}>current stack: FRUITS</p>{/* stack NAME will be chosen from DB */}
       <div className="flex justify-between w-[200px] mb-6">
         <button className={style.button}>prev</button>
         <button className={style.button}>next</button>

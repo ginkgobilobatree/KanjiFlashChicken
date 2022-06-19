@@ -18,17 +18,38 @@ export default function FlashCards({ card }) {
   };
 
   const prevCard = () => {
-    setRotation(0); //still needs to be fixed! back of new card is shown before switching to previous one
-    cardNumber === 0
-      ? setCardNumber(card.length - 1)
-      : setCardNumber(cardNumber - 1);
+    if (card.length) {
+      //requires fixing of transition while rotating card!
+      rotation
+        ? setTimeout(
+            () =>
+              cardNumber === 0
+                ? setCardNumber(card.length - 1)
+                : setCardNumber(cardNumber - 1),
+            500
+          )
+        : cardNumber === 0
+        ? setCardNumber(card.length - 1)
+        : setCardNumber(cardNumber - 1);
+      setRotation(0);
+    }
   };
 
   const nextCard = () => {
-    setRotation(0); //also requires fixing
-    cardNumber === card.length - 1
-      ? setCardNumber(0)
-      : setCardNumber(cardNumber + 1);
+    if (card.length) {
+      rotation
+        ? setTimeout(
+            () =>
+              cardNumber === card.length - 1
+                ? setCardNumber(0)
+                : setCardNumber(cardNumber + 1),
+            500
+          )
+        : cardNumber === card.length - 1
+        ? setCardNumber(0)
+        : setCardNumber(cardNumber + 1);
+      setRotation(0);
+    }
   };
 
   return (

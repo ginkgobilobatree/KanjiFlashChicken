@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 export default function FlashCards({ card }) {
-  const [rotation, setRotation] = useState(0); //default 0deg
-  const [cardNumber, setCardNumber] = useState(0);
+  const [rotation, setRotation] = useState({ deg: 0, transition: 0.5 });
+  const [cardIndex, setCardIndex] = useState(0);
 
   const style = {
     scene: "w-[200px] h-[120px] mt-4",
@@ -18,37 +18,22 @@ export default function FlashCards({ card }) {
   };
 
   const prevCard = () => {
+    //there have to be cards to make prevCard() work
     if (card.length) {
-      //requires fixing of transition while rotating card!
-      rotation
-        ? setTimeout(
-            () =>
-              cardNumber === 0
-                ? setCardNumber(card.length - 1)
-                : setCardNumber(cardNumber - 1),
-            500
-          )
-        : cardNumber === 0
-        ? setCardNumber(card.length - 1)
-        : setCardNumber(cardNumber - 1);
-      setRotation(0);
+      //if there is already 180deg rotate it back without transition time
+      if (rotation.deg) setRotation({ deg: 0, transition: 0 });
+      cardIndex === 0
+        ? setCardIndex(card.length - 1)
+        : setCardIndex(cardIndex - 1);
     }
   };
 
   const nextCard = () => {
     if (card.length) {
-      rotation
-        ? setTimeout(
-            () =>
-              cardNumber === card.length - 1
-                ? setCardNumber(0)
-                : setCardNumber(cardNumber + 1),
-            500
-          )
-        : cardNumber === card.length - 1
-        ? setCardNumber(0)
-        : setCardNumber(cardNumber + 1);
-      setRotation(0);
+      if (rotation.deg) setRotation({ deg: 0, transition: 0 });
+      cardIndex === card.length - 1
+        ? setCardIndex(0)
+        : setCardIndex(cardIndex + 1);
     }
   };
 
@@ -56,11 +41,15 @@ export default function FlashCards({ card }) {
     <>
       <div style={{ perspective: "600px" }} className={style.scene}>
         <div
-          onClick={() => (rotation ? setRotation(0) : setRotation(180))}
+          onClick={() =>
+            rotation.deg
+              ? setRotation({ deg: 0, transition: 0.5 })
+              : setRotation({ deg: 180, transition: 0.5 })
+          }
           style={{
             transformStyle: "preserve-3d",
-            transform: `rotateY(${rotation}deg)`,
-            transition: ".5s",
+            transform: `rotateY(${rotation.deg}deg)`,
+            transition: `${rotation.transition}s`,
           }}
           className={style.cards}
         >
@@ -68,7 +57,7 @@ export default function FlashCards({ card }) {
             style={{ backfaceVisibility: "hidden" }}
             className={style.surfaceFront}
           >
-            <p>{card.length ? card[cardNumber].front : "front"}</p>
+            <p>{card.length ? card[cardIndex].front : "front"}</p>
           </div>
           <div
             style={{
@@ -77,7 +66,7 @@ export default function FlashCards({ card }) {
             }}
             className={style.surfaceBack}
           >
-            <p>{card.length ? card[cardNumber].back : "back"}</p>
+            <p>{card.length ? card[cardIndex].back : "back"}</p>
           </div>
         </div>
       </div>

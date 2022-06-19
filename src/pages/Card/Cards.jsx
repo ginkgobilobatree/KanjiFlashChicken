@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import FlashCards from "./FlaschCards";
+import FlashCards from "./FlashCards";
 import NewCard from "./NewCard";
 
 export default function Card() {
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(false);//visibility of NewCard.jsx
+  const [card, setCard] = useState([]);
   const style = {
     main: "flex justify-center items-center flex-col",
     button: toggle
@@ -18,7 +19,7 @@ export default function Card() {
 
   return (
     <main className={style.main}>
-      <FlashCards />
+      <FlashCards card={card}/>
       <button className={style.button}>change front and back</button>
       <button
         onClick={() => setToggle(!toggle)}
@@ -27,16 +28,16 @@ export default function Card() {
         {/* button opens input fields */}
         add new card
       </button>
-      <button className={style.button}>choose card (32)</button>
+      {/* <button className={style.button}>choose card (32)</button> */}
       {/* number will be retrieved from DB */}
-      <button className={`${style.button} + mt-6`}>add new stack</button>
-      <button className={style.button}>choose stack (3)</button>
+      {/* <button className={`${style.button} + mt-6`}>add new stack</button>
+      <button className={style.button}>choose stack (3)</button> */}
       {/* number will be retrieved from DB */}
       <div onClick={(e) => setToggle(false)} className={style.div1}>
         {/* sets background on blur and closes input on onClick */}
         <div onClick={(e) => e.stopPropagation()} className={style.div2}>
           {/* stopPropagation leaves toggle true on onClick */}
-          <NewCard />
+          <NewCard card={card} setCard={setCard}/>
         </div>
       </div>
     </main>

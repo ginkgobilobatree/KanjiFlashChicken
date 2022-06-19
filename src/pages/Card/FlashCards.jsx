@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function FlaschCards() {
+export default function FlashCards({ card }) {
   const [rotation, setRotation] = useState(0); //default 0deg
 
   const style = {
@@ -15,6 +15,7 @@ export default function FlaschCards() {
     button:
       "w-[90px] py-1 text-[white] border border-dotted border-dry hover:scale-105 active:bg-dark active:sepia",
   };
+
   return (
     <>
       <div style={{ perspective: "600px" }} className={style.scene}>
@@ -31,7 +32,7 @@ export default function FlaschCards() {
             style={{ backfaceVisibility: "hidden" }}
             className={style.surfaceFront}
           >
-            front
+            <p>{card.length ? card[0].front : "front"}</p>
           </div>
           <div
             style={{
@@ -40,11 +41,11 @@ export default function FlaschCards() {
             }}
             className={style.surfaceBack}
           >
-            back
+            <p>{card.length ? card[0].back : "back"}</p>
           </div>
         </div>
       </div>
-      <p className={style.p}>current stack: FRUITS</p>{/* stack NAME will be chosen from DB */}
+      <p className={style.p}>number of cards: {card.length}</p>
       <div className="flex justify-between w-[200px] mb-6">
         <button className={style.button}>prev</button>
         <button className={style.button}>next</button>

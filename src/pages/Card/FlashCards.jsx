@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 export default function FlashCards({ card }) {
   const [rotation, setRotation] = useState(0); //default 0deg
+  const [cardNumber, setCardNumber] = useState(0);
 
   const style = {
     scene: "w-[200px] h-[120px] mt-4",
@@ -14,6 +15,20 @@ export default function FlashCards({ card }) {
     p: "px-1 py-1 border-l border-b text-[white] text-[9px] border-dotted mb-4",
     button:
       "w-[90px] py-1 text-[white] border border-dotted border-dry hover:scale-105 active:bg-dark active:sepia",
+  };
+
+  const prevCard = () => {
+    setRotation(0); //still needs to be fixed! back of new card is shown before switching to previous one
+    cardNumber === 0
+      ? setCardNumber(card.length - 1)
+      : setCardNumber(cardNumber - 1);
+  };
+
+  const nextCard = () => {
+    setRotation(0); //also requires fixing
+    cardNumber === card.length - 1
+      ? setCardNumber(0)
+      : setCardNumber(cardNumber + 1);
   };
 
   return (
@@ -32,7 +47,7 @@ export default function FlashCards({ card }) {
             style={{ backfaceVisibility: "hidden" }}
             className={style.surfaceFront}
           >
-            <p>{card.length ? card[0].front : "front"}</p>
+            <p>{card.length ? card[cardNumber].front : "front"}</p>
           </div>
           <div
             style={{
@@ -41,14 +56,18 @@ export default function FlashCards({ card }) {
             }}
             className={style.surfaceBack}
           >
-            <p>{card.length ? card[0].back : "back"}</p>
+            <p>{card.length ? card[cardNumber].back : "back"}</p>
           </div>
         </div>
       </div>
       <p className={style.p}>number of cards: {card.length}</p>
       <div className="flex justify-between w-[200px] mb-6">
-        <button className={style.button}>prev</button>
-        <button className={style.button}>next</button>
+        <button onClick={prevCard} className={style.button}>
+          prev
+        </button>
+        <button onClick={nextCard} className={style.button}>
+          next
+        </button>
       </div>
     </>
   );

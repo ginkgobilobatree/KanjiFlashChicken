@@ -51,7 +51,6 @@ export default function NewCard({ card, setCard }) {
         <button onClick={submit} className={style.button} type="submit">
           add card
         </button>
-        <p className="text-[yellow]">{card?.length}</p>
       </form>
     </>
   );

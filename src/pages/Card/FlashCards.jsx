@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
-export default function FlaschCards() {
+export default function FlashCards({ card }) {
   const [rotation, setRotation] = useState(0); //default 0deg
+  const [cardNumber, setCardNumber] = useState(0);
 
   const style = {
     scene: "w-[200px] h-[120px] mt-4",
@@ -15,6 +16,42 @@ export default function FlaschCards() {
     button:
       "w-[90px] py-1 text-[white] border border-dotted border-dry hover:scale-105 active:bg-dark active:sepia",
   };
+
+  const prevCard = () => {
+    if (card.length) {
+      //requires fixing of transition while rotating card!
+      rotation
+        ? setTimeout(
+            () =>
+              cardNumber === 0
+                ? setCardNumber(card.length - 1)
+                : setCardNumber(cardNumber - 1),
+            500
+          )
+        : cardNumber === 0
+        ? setCardNumber(card.length - 1)
+        : setCardNumber(cardNumber - 1);
+      setRotation(0);
+    }
+  };
+
+  const nextCard = () => {
+    if (card.length) {
+      rotation
+        ? setTimeout(
+            () =>
+              cardNumber === card.length - 1
+                ? setCardNumber(0)
+                : setCardNumber(cardNumber + 1),
+            500
+          )
+        : cardNumber === card.length - 1
+        ? setCardNumber(0)
+        : setCardNumber(cardNumber + 1);
+      setRotation(0);
+    }
+  };
+
   return (
     <>
       <div style={{ perspective: "600px" }} className={style.scene}>
@@ -31,7 +68,7 @@ export default function FlaschCards() {
             style={{ backfaceVisibility: "hidden" }}
             className={style.surfaceFront}
           >
-            front
+            <p>{card.length ? card[cardNumber].front : "front"}</p>
           </div>
           <div
             style={{
@@ -40,14 +77,18 @@ export default function FlaschCards() {
             }}
             className={style.surfaceBack}
           >
-            back
+            <p>{card.length ? card[cardNumber].back : "back"}</p>
           </div>
         </div>
       </div>
-      <p className={style.p}>current stack: FRUITS</p>{/* stack NAME will be chosen from DB */}
+      <p className={style.p}>number of cards: {card.length}</p>
       <div className="flex justify-between w-[200px] mb-6">
-        <button className={style.button}>prev</button>
-        <button className={style.button}>next</button>
+        <button onClick={prevCard} className={style.button}>
+          prev
+        </button>
+        <button onClick={nextCard} className={style.button}>
+          next
+        </button>
       </div>
     </>
   );

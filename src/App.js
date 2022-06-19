@@ -4,7 +4,7 @@ import Cards from "./pages/Card";
 import Header from "./pages/Header";
 import Footer from "./pages/Footer";
 import NewCard from "./pages/Card/NewCard";
-import FlashCards from "./pages/Card/FlaschCards";
+import FlashCards from "./pages/Card/FlashCards";
 import Test from "./pages/Test";
 
 function App() {

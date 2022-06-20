@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function NewCard({ card, setCard, setToggle }) {
+export default function NewCard({ /* card, setCard, */ setToggle }) {
   const [input, setInput] = useState({ front: "", back: "" });
 
   const style = {
@@ -42,7 +42,7 @@ export default function NewCard({ card, setCard, setToggle }) {
     if (input.front.trim().length === 0 || input.back.trim().length === 0)
       alert("please, write something on both sides");
     else {
-      setCard([...card, input]); //spread what's already in it and add the state (an object) of input to the state (an array) of card
+      // setCard([...card, input]); //spread what's already in it and add the state (an object) of input to the state (an array) of card
       writeCard(input);
       setInput({ front: "", back: "" });
     } //delete the current state

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function NewCard({ /* card, setCard, */ setToggle }) {
+export default function NewCard({ setToggle, getCard }) {
   const [input, setInput] = useState({ front: "", back: "" });
 
   const style = {
@@ -20,7 +20,7 @@ export default function NewCard({ /* card, setCard, */ setToggle }) {
   };
 
   const writeCard = async (input) => {
-    const data = {
+    const req = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -28,7 +28,7 @@ export default function NewCard({ /* card, setCard, */ setToggle }) {
       body: JSON.stringify(input),
     };
     try {
-      const response = await fetch("/test", data);
+      const response = await fetch("/flashCards", req);
       const result = await response.json();
       console.log(result.message);
     } catch (error) {
@@ -42,9 +42,9 @@ export default function NewCard({ /* card, setCard, */ setToggle }) {
     if (input.front.trim().length === 0 || input.back.trim().length === 0)
       alert("please, write something on both sides");
     else {
-      // setCard([...card, input]); //spread what's already in it and add the state (an object) of input to the state (an array) of card
       writeCard(input);
       setInput({ front: "", back: "" });
+      getCard()
     } //delete the current state
   };
 

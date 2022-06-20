@@ -3,8 +3,8 @@ import FlashCards from "./FlashCards";
 import NewCard from "./NewCard";
 
 export default function Card() {
-  const [toggle, setToggle] = useState(false);//visibility of NewCard.jsx
   const [card, setCard] = useState([]);
+  const [toggle, setToggle] = useState(false); //visibility of NewCard.jsx
   const style = {
     main: "flex justify-center items-center flex-col",
     button: toggle
@@ -17,9 +17,27 @@ export default function Card() {
     div2: toggle ? "flex justify-center items-center" : "hidden",
   };
 
+  const getCard = async () => {
+    const req = {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+      },
+    };
+    try {
+      const response = await fetch("/flashCards", req);
+      const result = await response.json();
+      // return JSON.parse(result)
+      setCard(JSON.parse(result));
+      console.log('hi')
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
   return (
     <main className={style.main}>
-      <FlashCards card={card}/>
+      <FlashCards getCard={getCard} setCard={setCard} card={card} />
       <button className={style.button}>change front and back</button>
       <button
         onClick={() => setToggle(!toggle)}
@@ -37,7 +55,12 @@ export default function Card() {
         {/* sets background on blur and closes input on onClick */}
         <div onClick={(e) => e.stopPropagation()} className={style.div2}>
           {/* stopPropagation leaves toggle true on onClick */}
-          <NewCard card={card} setCard={setCard} setToggle={setToggle}/>
+          <NewCard
+            card={card}
+            setCard={setCard}
+            setToggle={setToggle}
+            getCard={getCard}
+          />
         </div>
       </div>
     </main>

@@ -5,7 +5,6 @@ import Header from "./pages/Header";
 import Footer from "./pages/Footer";
 import NewCard from "./pages/Card/NewCard";
 import FlashCards from "./pages/Card/FlashCards";
-// import Test from "./pages/Test";
 
 function App() {
   return (
@@ -17,7 +16,6 @@ function App() {
           <Route path="newCard" element={<NewCard />} />
           <Route path="flashCards" element={<FlashCards />} />
         </Route>
-          {/* <Route path="test" element={<Test />} /> */}
       </Routes>
       <Footer />
     </BrowserRouter>

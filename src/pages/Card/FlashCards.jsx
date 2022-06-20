@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-export default function FlashCards({ card }) {
+export default function FlashCards({ getCard, card }) {
   const [rotation, setRotation] = useState({ deg: 0, transition: 0.5 });
   const [cardIndex, setCardIndex] = useState(0);
 
@@ -16,6 +16,10 @@ export default function FlashCards({ card }) {
     button:
       "w-[90px] py-1 text-[white] border border-dotted border-dry hover:scale-105 active:bg-dark active:sepia",
   };
+
+  useEffect(() => {
+    getCard();
+  }, []);
 
   const prevCard = () => {
     //there have to be cards to make prevCard() work -- analog to nextCard()

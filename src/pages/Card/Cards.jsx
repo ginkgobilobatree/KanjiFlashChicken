@@ -37,7 +37,7 @@ export default function Card() {
         {/* sets background on blur and closes input on onClick */}
         <div onClick={(e) => e.stopPropagation()} className={style.div2}>
           {/* stopPropagation leaves toggle true on onClick */}
-          <NewCard card={card} setCard={setCard}/>
+          <NewCard card={card} setCard={setCard} setToggle={setToggle}/>
         </div>
       </div>
     </main>

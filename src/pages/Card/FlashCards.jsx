@@ -18,9 +18,9 @@ export default function FlashCards({ card }) {
   };
 
   const prevCard = () => {
-    //there have to be cards to make prevCard() work
+    //there have to be cards to make prevCard() work -- analog to nextCard()
     if (card.length) {
-      //if there is already 180deg rotate it back without transition time
+      //if there is already 180deg rotate it back without transition time -- analog to nextCard()
       if (rotation.deg) setRotation({ deg: 0, transition: 0 });
       cardIndex === 0
         ? setCardIndex(card.length - 1)
@@ -47,6 +47,7 @@ export default function FlashCards({ card }) {
               : setRotation({ deg: 180, transition: 0.5 })
           }
           style={{
+            //to cumbersome with tailwindCSS, that's why in style-object
             transformStyle: "preserve-3d",
             transform: `rotateY(${rotation.deg}deg)`,
             transition: `${rotation.transition}s`,
@@ -70,7 +71,10 @@ export default function FlashCards({ card }) {
           </div>
         </div>
       </div>
-      <p className={style.p}>number of cards: {card.length}</p>
+      <p className={style.p}>
+        number of cards: {card.length ? cardIndex + 1 : 0}/{card.length}{" "}
+        {rotation.deg ? "back" : "front"}
+      </p>
       <div className="flex justify-between w-[200px] mb-6">
         <button onClick={prevCard} className={style.button}>
           prev

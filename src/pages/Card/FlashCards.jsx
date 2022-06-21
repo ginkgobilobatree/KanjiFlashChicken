@@ -12,6 +12,7 @@ export default function FlashCards({ getCard, card }) {
       "bg-deepBack absolute w-[100%] h-[100%] flex justify-center items-center text-[white] border border-dashed border-[white]",
     surfaceBack:
       "bg-deepBack absolute w-[100%] h-[100%] flex justify-center items-center text-[white] border border-dashed border-[white]",
+      pBack: "text-lg",
     p: "px-1 py-1 border-l border-b text-[white] text-[9px] border-dotted mb-4",
     button:
       "w-[90px] py-1 text-[white] border border-dotted border-dry hover:scale-105 active:bg-dark active:sepia",
@@ -71,7 +72,7 @@ export default function FlashCards({ getCard, card }) {
             }}
             className={style.surfaceBack}
           >
-            <p>{card.length ? card[cardIndex].back : "back"}</p>
+            <p className={style.pBack}>{card.length ? card[cardIndex].back : "back"}</p>
           </div>
         </div>
       </div>

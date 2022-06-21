@@ -39,7 +39,7 @@ export default function NewCard({ setToggle, getCard }) {
         <button
           onClick={(e) => {
             e.preventDefault();
-            setToggle(0);
+            setToggle({newCard: false, modifyCards: false});
           }}
           className={style.close}
         >

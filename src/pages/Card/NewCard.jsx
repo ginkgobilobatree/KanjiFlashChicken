@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { createCard } from "../../util/createCard";
 
 export default function NewCard({ setToggle, getCard }) {
   const [input, setInput] = useState({ front: "", back: "" });
@@ -17,21 +18,6 @@ export default function NewCard({ setToggle, getCard }) {
       ...input, //spread what's already in it; in the beginning empty array, so nothing
       [e.target.name]: value,
     });
-  };
-
-  const createCard = async (input) => {
-    const req = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(input),
-    };
-    try {
-      await fetch("/flashCards", req);
-    } catch (error) {
-      console.error(error.message);
-    }
   };
 
   const submit = (e) => {

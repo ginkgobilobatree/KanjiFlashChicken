@@ -27,7 +27,6 @@ export default function Card() {
     try {
       const response = await fetch("/flashCards", req);
       const result = await response.json();
-      // return JSON.parse(result)
       setCard(JSON.parse(result));
       console.log('hi')
     } catch (error) {
@@ -37,7 +36,7 @@ export default function Card() {
 
   return (
     <main className={style.main}>
-      <FlashCards getCard={getCard} setCard={setCard} card={card} />
+      <FlashCards getCard={getCard} card={card} />
       <button className={style.button}>change front and back</button>
       <button
         onClick={() => setToggle(!toggle)}

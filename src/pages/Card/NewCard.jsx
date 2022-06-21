@@ -11,7 +11,7 @@ export default function NewCard({ setToggle, getCard }) {
       "mt-2 py-1 px-3 border border-dotted border-[white] text-[white] bg-juicy hover:scale-105 active:bg-dark active:sepia",
   };
 
-  const createCard = (e) => {
+  const collectInput = (e) => {
     const value = e.target.value; //just to make it shorter
     setInput({
       ...input, //spread what's already in it; in the beginning empty array, so nothing
@@ -19,7 +19,7 @@ export default function NewCard({ setToggle, getCard }) {
     });
   };
 
-  const writeCard = async (input) => {
+  const createCard = async (input) => {
     const req = {
       method: "POST",
       headers: {
@@ -28,11 +28,9 @@ export default function NewCard({ setToggle, getCard }) {
       body: JSON.stringify(input),
     };
     try {
-      const response = await fetch("/flashCards", req);
-      const result = await response.json();
-      console.log(result.message);
+      await fetch("/flashCards", req);
     } catch (error) {
-      console.error(error);
+      console.error(error.message);
     }
   };
 
@@ -42,10 +40,11 @@ export default function NewCard({ setToggle, getCard }) {
     if (input.front.trim().length === 0 || input.back.trim().length === 0)
       alert("please, write something on both sides");
     else {
-      writeCard(input);
+      createCard(input);
+      //delete the current state
       setInput({ front: "", back: "" });
-      getCard()
-    } //delete the current state
+      getCard();
+    }
   };
 
   return (
@@ -61,7 +60,7 @@ export default function NewCard({ setToggle, getCard }) {
           [x]
         </button>
         <input
-          onChange={createCard}
+          onChange={collectInput}
           className={style.input}
           name="front"
           value={input.front}
@@ -69,7 +68,7 @@ export default function NewCard({ setToggle, getCard }) {
           placeholder="front"
         />
         <input
-          onChange={createCard}
+          onChange={collectInput}
           className={style.input}
           name="back"
           value={input.back}

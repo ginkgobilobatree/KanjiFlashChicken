@@ -46,6 +46,7 @@ export default function NewCard({ setToggle, getCard }) {
           [x]
         </button>
         <input
+          maxLength="10"
           onChange={collectInput}
           className={style.input}
           name="front"
@@ -54,6 +55,7 @@ export default function NewCard({ setToggle, getCard }) {
           placeholder="front"
         />
         <input
+          maxLength="20"
           onChange={collectInput}
           className={style.input}
           name="back"

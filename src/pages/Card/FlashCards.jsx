@@ -9,9 +9,9 @@ export default function FlashCards({ getCard, card }) {
     cards:
       "w-[100%] h-[100%] text-4xl relative text-attention hover:cursor-pointer",
     surfaceFront:
-      "bg-deepBack absolute w-[100%] h-[100%] flex justify-center items-center text-[white] border border-dashed border-[white]",
+      "bg-deepBack absolute w-[100%] h-[100%] flex justify-center items-center text-center text-[white] border border-dashed border-[white]",
     surfaceBack:
-      "bg-deepBack absolute w-[100%] h-[100%] flex justify-center items-center text-[white] border border-dashed border-[white]",
+      "bg-deepBack absolute w-[100%] h-[100%] flex justify-center items-center text-center text-[white] border border-dashed border-[white]",
       pBack: "text-lg",
     p: "px-1 py-1 border-l border-b text-[white] text-[9px] border-dotted mb-4",
     button:

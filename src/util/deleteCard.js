@@ -1,14 +1,14 @@
-export const createCard = async (input) => {
+export const deleteCard = async (ind) => {
   const req = {
-    method: "POST",
+    method: "DELETE",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(input),
+    body: `${ind}`,
   };
   try {
     await fetch("/flashCards", req);
   } catch (error) {
-    console.error(error.message);
+    console.error(error);
   }
 };

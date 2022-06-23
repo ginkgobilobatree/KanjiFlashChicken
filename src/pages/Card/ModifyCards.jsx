@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ModifySingleCard from "./ModifySingleCard";
 
 export default function ModifyCards({ setToggle, card, setCard }) {
+  const [ind, setInd] = useState(' HÄ?')
   const [toggleModify, setToggleModify] = useState(false);
   const style = {
     div: "w-60 h-80 text-[white] flex flex-col items-center justify-center py-4 px-2 shadow-xl border border-dashed border-[white] bg-deepBack",
@@ -32,36 +33,33 @@ export default function ModifyCards({ setToggle, card, setCard }) {
       <p className={style.p}>pick a card to modify</p>
       <ul className={style.ul}>
         {card.map((elem, i) => (
-          <>
-            <li
-              onClick={() => setToggleModify(true)}
-              data-index={i}
-              className={style.li}
-              key={i}
-            >
+          <button className="w-full"
+            key={i}
+            onClick={(e) => {
+              setInd(i)
+              setToggleModify(true);
+            }}
+          >
+            <li className={style.li}>
               <div className={style.number}>#{i + 1}</div>
               <div className={style.front}>{elem.front}</div>
               <div className={style.back}>{elem.back}</div>
             </li>
-            <div
-              onClick={() => setToggleModify(false)}
-              className={style.modifyOuter}
-            >
-              <div
-                onClick={(e) => e.stopPropagation()}
-                className={style.modifyInner}
-              >
-                <ModifySingleCard
-                  setToggleModify={setToggleModify}
-                  toggleModify={toggleModify}
-                  card={card}
-                  setCard={setCard}
-                />
-              </div>
-            </div>
-          </>
+          </button>
         ))}
       </ul>
+      <div onClick={() => setToggleModify(false)} className={style.modifyOuter}>
+        <div onClick={(e) => e.stopPropagation()} className={style.modifyInner}>
+          <ModifySingleCard
+          ind={ind}
+          setToggleModify={setToggleModify}
+          toggleModify={toggleModify}
+          card={card}
+          setCard={setCard}
+        />
+        </div>
+      </div>
     </div>
   );
 }
+

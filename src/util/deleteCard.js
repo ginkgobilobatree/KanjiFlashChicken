@@ -1,13 +1,8 @@
-export const deleteCard = async (ind) => {
-  const req = {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: `${ind}`,
-  };
+export const deleteCard = async (cardId) => {
   try {
-    await fetch("/flashCards", req);
+    const response = await fetch(`/flashCards/${cardId}`); //:${cardId}
+    const result = response.json();
+    return console.log(result)
   } catch (error) {
     console.error(error);
   }

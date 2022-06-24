@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ModifySingleCard from "./ModifySingleCard";
 
 export default function ModifyCards({ setToggle, card, setCard }) {
-  const [ind, setInd] = useState(' HÄ?')
+  const [ind, setInd] = useState(0)
   const [toggleModify, setToggleModify] = useState(false);
   const style = {
     div: "w-60 h-80 text-[white] flex flex-col items-center justify-center py-4 px-2 shadow-xl border border-dashed border-[white] bg-deepBack",

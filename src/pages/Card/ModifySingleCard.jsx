@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { deleteCard } from "../../util/deleteCard";
+// import { deleteCard } from "../../util/deleteCard";
 
 export default function ModifySingleCard({
   ind,
   setToggleModify,
   toggleModify,
-  card,
+  card, 
   setCard,
 }) {
 
@@ -27,13 +27,17 @@ export default function ModifySingleCard({
       "w-[150px] py-1 text-[white] border border-dotted border-dry hover:scale-105 active:bg-dark active:sepia bg-dry",
   };
 
-  /* const collectInput = (e) => {
-    const value = e.target.value; //just to make it shorter
-    setInput({
-      ...input, //spread what's already in it; in the beginning empty array, so nothing
-      [e.target.name]: value,
-    });
-  }; */
+  const deleteCard = async () => {
+    // console.log(ind)
+    try {
+      const response = await fetch('/flashCards/' + 0);
+      const result = response.json();
+      return result;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
 
   const modify = (e) => {
     const value = e.target.value;
@@ -79,7 +83,7 @@ export default function ModifySingleCard({
       <button className={style.buttonModify} onClick={(e) => modify(e)}>
         modify card
       </button>
-      <button className={style.buttonDelete} onClick={(ind) => deleteCard(ind)}>
+      <button className={style.buttonDelete} onClick={deleteCard}>
         delete card
       </button>
     </div>

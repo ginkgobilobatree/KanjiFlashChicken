@@ -27,10 +27,10 @@ export default function ModifySingleCard({
       "w-[150px] py-1 text-[white] border border-dotted border-dry hover:scale-105 active:bg-dark active:sepia bg-dry",
   };
 
-  const deleteCard = async () => {
-    // console.log(ind)
+  const deleteCard = async (ind) => {
+    console.log(ind)
     try {
-      const response = await fetch('/flashCards/' + 0);
+      const response = await fetch('/flashCards/' + ind, {method: "DELETE"});
       const result = response.json();
       return result;
     } catch (error) {
@@ -83,7 +83,7 @@ export default function ModifySingleCard({
       <button className={style.buttonModify} onClick={(e) => modify(e)}>
         modify card
       </button>
-      <button className={style.buttonDelete} onClick={deleteCard}>
+      <button className={style.buttonDelete} onClick={() => deleteCard(ind)}>
         delete card
       </button>
     </div>

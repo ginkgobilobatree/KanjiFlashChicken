@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ModifySingleCard from "./ModifySingleCard";
 
-export default function ModifyCards({ setToggle, card, setCard }) {
+export default function ModifyCards({ setToggle, card, setCard, getCard }) {
   const [ind, setInd] = useState(0)
   const [toggleModify, setToggleModify] = useState(false);
   const style = {
@@ -53,9 +53,8 @@ export default function ModifyCards({ setToggle, card, setCard }) {
           <ModifySingleCard
           ind={ind}
           setToggleModify={setToggleModify}
-          toggleModify={toggleModify}
           card={card}
-          setCard={setCard}
+          getCard={getCard}
         />
         </div>
       </div>

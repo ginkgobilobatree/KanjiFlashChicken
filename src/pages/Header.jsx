@@ -11,6 +11,13 @@ export default function Header() {
     ul: "flex justify-between w-[200px] mx-auto items-center",
     link: "py-1 px-3 text-sm border border-dry border-dotted text-juicy active:bg-dark active:sepia hover:border-[white]",
   };
+
+  const test = () => {
+    if (window.confirm("Do you really want to leave?")) {
+      alert('hi')
+    }
+  }
+
   return (
     <>
       <nav className={style.nav}>
@@ -25,6 +32,7 @@ export default function Header() {
           >
             cubes
           </NavLink>
+          <button onClick={test}>TEST</button>
           <NavLink
             style={({ isActive }) => ({
               background: isActive ? "#011340" : "",

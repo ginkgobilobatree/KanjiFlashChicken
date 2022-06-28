@@ -1,9 +1,11 @@
-export const deleteCard = async (cardId) => {
-  try {
-    const response = await fetch(`/flashCards/${cardId}`); //:${cardId}
-    const result = response.json();
-    return console.log(result)
-  } catch (error) {
-    console.error(error);
+export const deleteCard = async (cardId, setToggleModify, getCard) => {
+  if (window.confirm("are you sure?")) {
+    try {
+      await fetch(`/flashCards/${cardId}`, { method: "DELETE" }); //:${cardId}
+      setToggleModify(false);
+      getCard();
+    } catch (error) {
+      console.error(error);
+    }
   }
 };

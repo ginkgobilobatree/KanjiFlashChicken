@@ -1,15 +1,13 @@
 import React, { useState } from "react";
-// import { deleteCard } from "../../util/deleteCard";
+import { deleteCard } from "../../util/deleteCard";
 
 export default function ModifySingleCard({
   ind,
   setToggleModify,
-  toggleModify,
-  card, 
-  setCard,
+  card,
+  getCard,
 }) {
-
-  const [inputMod, setInputMod] = useState({front: "", back: ""});
+  const [inputMod, setInputMod] = useState({ front: "", back: "" });
 
   const style = {
     div: "w-60 h-80 text-[white] flex flex-col items-center justify-center py-4 px-2 border border-dashed border-[white] bg-deepBack",
@@ -27,24 +25,35 @@ export default function ModifySingleCard({
       "w-[150px] py-1 text-[white] border border-dotted border-dry hover:scale-105 active:bg-dark active:sepia bg-dry",
   };
 
-  const deleteCard = async (ind) => {
-    console.log(ind)
-    try {
-      const response = await fetch('/flashCards/' + ind, {method: "DELETE"});
-      const result = response.json();
-      return result;
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  
+  const modify = async (e) => {
 
-  const modify = (e) => {
+    //take input from fields and store it as state
     const value = e.target.value;
     setInputMod({
       ...inputMod,
       [e.target.name] : value,
     })
+
+    //PUT input in body
+    const req = {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: {inputMod},
+    };
+
+    //fetch
+    try {
+      await fetch("flashCards", req);
+    } catch (error) {
+      console.error(error);
+    }
+
+    //closes modifySingleCard window and fetches all cards again
+    setToggleModify(false);
+    getCard();
+
   };
 
   return (
@@ -83,7 +92,10 @@ export default function ModifySingleCard({
       <button className={style.buttonModify} onClick={(e) => modify(e)}>
         modify card
       </button>
-      <button className={style.buttonDelete} onClick={() => deleteCard(ind)}>
+      <button
+        className={style.buttonDelete}
+        onClick={() => deleteCard(ind, setToggleModify, getCard)}
+      >
         delete card
       </button>
     </div>

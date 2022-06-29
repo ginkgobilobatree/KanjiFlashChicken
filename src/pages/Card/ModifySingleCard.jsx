@@ -25,35 +25,33 @@ export default function ModifySingleCard({
       "w-[150px] py-1 text-[white] border border-dotted border-dry hover:scale-105 active:bg-dark active:sepia bg-dry",
   };
 
-  const modify = async (e) => {
-
-    //take input from fields and store it as state
+  const modify = (e) => {
     const value = e.target.value;
     setInputMod({
       ...inputMod,
-      [e.target.name] : value,
-    })
+      [e.target.name]: value,
+    });
+  };
 
+  const modifyCard = async (e) => {
+    const bodyContent = { inputMod, ind }
     //PUT input in body
     const req = {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: {inputMod},
+      body: JSON.stringify(bodyContent),
     };
 
     //fetch
     try {
-      await fetch("flashCards", req);
+      await fetch("/flashCards", req);
     } catch (error) {
       console.error(error);
     }
-
-    //closes modifySingleCard window and fetches all cards again
     setToggleModify(false);
-    getCard();
-
+    setInputMod({front: "", back: ""})
   };
 
   return (
@@ -71,6 +69,8 @@ export default function ModifySingleCard({
         <label className={style.labelFront}>
           front
           <input
+            onChange={modify}
+            value={inputMod.front}
             type="text"
             name="front"
             maxLength="10"
@@ -80,6 +80,8 @@ export default function ModifySingleCard({
         </label>
         <label className={style.labelBack}>
           <input
+            onChange={modify}
+            value={inputMod.back}
             type="text"
             name="back"
             maxLength="20"
@@ -89,12 +91,22 @@ export default function ModifySingleCard({
           back
         </label>
       </div>
-      <button className={style.buttonModify} onClick={(e) => modify(e)}>
+      <button
+        className={style.buttonModify}
+        onClick={() => {
+          modifyCard();
+          getCard();
+        }}
+      >
         modify card
       </button>
       <button
         className={style.buttonDelete}
-        onClick={() => deleteCard(ind, setToggleModify, getCard)}
+        onClick={() => {
+          deleteCard(ind);
+          getCard();
+          setToggleModify(false);
+        }}
       >
         delete card
       </button>

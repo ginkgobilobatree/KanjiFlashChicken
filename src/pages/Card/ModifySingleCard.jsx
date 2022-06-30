@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import { deleteCard } from "../../util/deleteCard";
+import { modifyCard } from "../../util/modifyCard";
+import { getCard } from "../../util/getCard";
 
 export default function ModifySingleCard({
   ind,
   setToggleModify,
   card,
-  getCard,
+  setCard
 }) {
   const [inputMod, setInputMod] = useState({ front: "", back: "" });
 
   const style = {
-    div: "w-60 h-80 text-[white] flex flex-col items-center justify-center py-4 px-2 border border-dashed border-[white] bg-deepBack",
+    form: "w-60 h-80 text-[white] flex flex-col items-center justify-center py-4 px-2 border border-dashed border-[white] bg-deepBack",
     close: "self-end",
     txtContainer: "w-3/4 flex flex-col gap-2",
     labelFront: "text-[9px]",
@@ -25,37 +27,28 @@ export default function ModifySingleCard({
       "w-[150px] py-1 text-[white] border border-dotted border-dry hover:scale-105 active:bg-dark active:sepia bg-dry",
   };
 
-  const modify = (e) => {
+  function collectInputModify(e) {
     const value = e.target.value;
     setInputMod({
       ...inputMod,
       [e.target.name]: value,
     });
-  };
+  }
 
-  const modifyCard = async (e) => {
-    const bodyContent = { inputMod, ind }
-    //PUT input in body
-    const req = {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(bodyContent),
-    };
-
-    //fetch
-    try {
-      await fetch("/flashCards", req);
-    } catch (error) {
-      console.error(error);
+  function submitModification(e) {
+    e.preventDefault();
+    if (!inputMod.front.trim().length || !inputMod.back.trim().length)
+      alert("please, write somehing on both sides");
+    else {
+      modifyCard(inputMod, ind);
+      setToggleModify(false);
+      setInputMod({ front: "", back: "" });
+      getCard(setCard)
     }
-    setToggleModify(false);
-    setInputMod({front: "", back: ""})
-  };
+  }
 
   return (
-    <div className={style.div}>
+    <form className={style.form}>
       <button
         onClick={(e) => {
           e.preventDefault();
@@ -69,7 +62,7 @@ export default function ModifySingleCard({
         <label className={style.labelFront}>
           front
           <input
-            onChange={modify}
+            onChange={collectInputModify}
             value={inputMod.front}
             type="text"
             name="front"
@@ -80,7 +73,7 @@ export default function ModifySingleCard({
         </label>
         <label className={style.labelBack}>
           <input
-            onChange={modify}
+            onChange={collectInputModify}
             value={inputMod.back}
             type="text"
             name="back"
@@ -91,25 +84,19 @@ export default function ModifySingleCard({
           back
         </label>
       </div>
-      <button
-        className={style.buttonModify}
-        onClick={() => {
-          modifyCard();
-          getCard();
-        }}
-      >
+      <button className={style.buttonModify} onClick={submitModification}>
         modify card
       </button>
       <button
         className={style.buttonDelete}
         onClick={() => {
           deleteCard(ind);
-          getCard();
+          getCard(setCard);
           setToggleModify(false);
         }}
       >
         delete card
-      </button>
-    </div>
+      </button> 
+    </form>
   );
 }

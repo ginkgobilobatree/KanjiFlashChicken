@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ModifySingleCard from "./ModifySingleCard";
 
-export default function ModifyCards({ setToggle, card, setCard, getCard }) {
+export default function ModifyCards({ setToggle, card, setCard }) {
   const [ind, setInd] = useState(0)
   const [toggleModify, setToggleModify] = useState(false);
   const style = {
@@ -19,6 +19,7 @@ export default function ModifyCards({ setToggle, card, setCard, getCard }) {
       : "hidden",
     modifyInner: toggleModify ? "flex justify-center items-center" : "hidden",
   };
+
   return (
     <div className={style.div}>
       <button
@@ -51,10 +52,11 @@ export default function ModifyCards({ setToggle, card, setCard, getCard }) {
       <div onClick={() => setToggleModify(false)} className={style.modifyOuter}>
         <div onClick={(e) => e.stopPropagation()} className={style.modifyInner}>
           <ModifySingleCard
+          setInd={setInd}
           ind={ind}
           setToggleModify={setToggleModify}
           card={card}
-          getCard={getCard}
+          setCard={setCard}
         />
         </div>
       </div>

@@ -1,4 +1,4 @@
-export const createCard = async (input) => {
+export async function createCard(input) {
   const req = {
     method: "POST",
     headers: {

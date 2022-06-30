@@ -7,7 +7,7 @@ export default function ModifySingleCard({
   ind,
   setToggleModify,
   card,
-  setCard
+  setCard,
 }) {
   const [inputMod, setInputMod] = useState({ front: "", back: "" });
 
@@ -35,15 +35,14 @@ export default function ModifySingleCard({
     });
   }
 
-  function submitModification(e) {
-    e.preventDefault();
+  function submitModification() {
     if (!inputMod.front.trim().length || !inputMod.back.trim().length)
       alert("please, write somehing on both sides");
     else {
       modifyCard(inputMod, ind);
       setToggleModify(false);
       setInputMod({ front: "", back: "" });
-      getCard(setCard)
+      getCard(setCard);
     }
   }
 
@@ -84,19 +83,26 @@ export default function ModifySingleCard({
           back
         </label>
       </div>
-      <button className={style.buttonModify} onClick={submitModification}>
+      <button
+        className={style.buttonModify}
+        onClick={(e) => {
+          e.preventDefault();
+          submitModification();
+        }}
+      >
         modify card
       </button>
       <button
         className={style.buttonDelete}
-        onClick={() => {
+        onClick={(e) => {
+          e.preventDefault();
           deleteCard(ind);
           getCard(setCard);
           setToggleModify(false);
         }}
       >
         delete card
-      </button> 
+      </button>
     </form>
   );
 }

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { createCard } from "../../util/createCard";
+import { getCard } from "../../util/getCard" 
 
-export default function NewCard({ setToggle, getCard }) {
+export default function NewCard({ setToggle, setCard }) {
   const [input, setInput] = useState({ front: "", back: "" });
 
   const style = {
@@ -29,13 +30,13 @@ export default function NewCard({ setToggle, getCard }) {
       createCard(input);
       //delete the current state
       setInput({ front: "", back: "" });
-      getCard();
+      getCard(setCard);
     }
   };
 
   return (
     <>
-      <form className={style.form}>
+      <form className={style.form} onSubmit={submit}>
         <button
           onClick={(e) => {
             e.preventDefault();
@@ -63,7 +64,7 @@ export default function NewCard({ setToggle, getCard }) {
           type="text"
           placeholder="back"
         />
-        <button onClick={submit} className={style.button} type="submit">
+        <button className={style.button} type="submit">
           add card
         </button>
       </form>

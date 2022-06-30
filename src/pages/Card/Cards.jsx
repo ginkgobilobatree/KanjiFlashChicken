@@ -25,26 +25,9 @@ export default function Card() {
       : "hidden",
   };
 
-  const getCard = async () => {
-    const req = {
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-      },
-    };
-    try {
-      const response = await fetch("/flashCards", req);
-      const result = await response.json();
-      setCard(JSON.parse(result));
-      console.log("hi");
-    } catch (error) {
-      console.error(error.message);
-    }
-  };
-
   return (
     <main className={style.main}>
-      <FlashCards getCard={getCard} card={card} />
+      <FlashCards card={card} setCard={setCard} />
       <button className={style.button}>change front and back</button>
       <button
         onClick={() => setToggle({ newCard: true, modifyCards: false })}
@@ -73,7 +56,6 @@ export default function Card() {
             card={card}
             setCard={setCard}
             setToggle={setToggle}
-            getCard={getCard}
           />
         </div>
       </div>
@@ -92,7 +74,6 @@ export default function Card() {
             card={card}
             setCard={setCard}
             setToggle={setToggle}
-            getCard={getCard}
           />
         </div>
       </div>

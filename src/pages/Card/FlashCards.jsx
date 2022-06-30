@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { getCard } from "../../util/getCard";
 
-export default function FlashCards({ getCard, card }) {
+export default function FlashCards({ card, setCard }) {
   const [rotation, setRotation] = useState({ deg: 0, transition: 0.5 });
   const [cardIndex, setCardIndex] = useState(0);
 
@@ -19,7 +20,7 @@ export default function FlashCards({ getCard, card }) {
   };
 
   useEffect(() => {
-    getCard();
+    getCard(setCard);
   }, []);
 
   const prevCard = () => {
